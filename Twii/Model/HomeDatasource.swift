@@ -13,7 +13,7 @@ class HomeDatasource: Datasource {
     let users:[User] = {
         let tonyUser = User(name: "TonyStark", username: "@geniusTony", bioText: "Hello, I'm Tony Stark. And this is my message for all of American people.", profileImage: #imageLiteral(resourceName: "ironman_img"))
         let PepperUser = User(name: "Pepper", username: "@beautypepper", bioText: "Hey,Boss. I think that I have to arrange our schedule for my holiday.", profileImage: #imageLiteral(resourceName: "pepper_img"))
-        let HankUser = User(name: "Hankho", username: "@hankhe", bioText: "Uh... I'm creator of this app~\nDo you like this?", profileImage: #imageLiteral(resourceName: "hank_img"))
+        let HankUser = User(name: "Hankho", username: "@hankhe", bioText: "Uh... I'm creator of this app~\nDo you like this?\nIf you like,pls press the button of Follow.", profileImage: #imageLiteral(resourceName: "hank_img"))
         return [tonyUser,PepperUser,HankUser]
     }()
     
