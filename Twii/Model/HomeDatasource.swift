@@ -9,7 +9,15 @@
 import LBTAComponents
 
 class HomeDatasource: Datasource {
-    let word = ["Hank","Eric","Andy"]
+    
+    let users:[User] = {
+        let tonyUser = User(name: "TonyStark", username: "@geniusTony", bioText: "Hello, I'm Tony Stark. And this is my message for all of American people.", profileImage: #imageLiteral(resourceName: "ironman_img"))
+        let PepperUser = User(name: "Pepper", username: "@beautypepper", bioText: "Hey,Boss. I think that I have to arrange our schedule for my holiday.", profileImage: #imageLiteral(resourceName: "pepper_img"))
+        let HankUser = User(name: "Hankho", username: "@hankhe", bioText: "Uh... I'm creator of this app~\nDo you like this?", profileImage: #imageLiteral(resourceName: "hank_img"))
+        return [tonyUser,PepperUser,HankUser]
+    }()
+    
+    //let word = ["Hank","Eric","Andy"]
     
     override func footerClasses() -> [DatasourceCell.Type]? {
         return [UserFooter.self]
@@ -26,9 +34,9 @@ class HomeDatasource: Datasource {
     
     
     override func numberOfItems(_ section: Int) -> Int {
-        return word.count
+        return users.count
     }
     override func item(_ indexPath: IndexPath) -> Any? {
-        return word[indexPath.item]
+        return users[indexPath.item]
     }
 }
