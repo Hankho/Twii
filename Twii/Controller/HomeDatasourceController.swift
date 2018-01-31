@@ -27,6 +27,6 @@ class HomeDatasourceController: DatasourceController {
     }
     // 定義Footer size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-       return CGSize(width: view.frame.width, height: 100)
+       return CGSize(width: view.frame.width, height: 50)
     }
 }
