@@ -13,6 +13,8 @@ class HomeDatasourceController: DatasourceController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        collectionView?.backgroundColor = UIColor(r: 232, g: 236, b: 241)
+        
         setupNavigationBarItems()
         
         let homeDatasource = HomeDatasource()
@@ -28,7 +30,7 @@ class HomeDatasourceController: DatasourceController {
         
         if  let user = self.datasource?.item(indexPath) as? User{
             //user.bioText
-            //let's get information of the height of our cell based on user.bioText
+            //let's get information of the height of our cell based on user.bioText (自動調整bitText高度)
             let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 12 - 2
             let size = CGSize(width: approximateWidthOfBioTextView, height: 1000)
             let attributes = [NSAttributedStringKey.font : UIFont.systemFont(ofSize: 15)]
@@ -40,10 +42,18 @@ class HomeDatasourceController: DatasourceController {
     
     // 定義Header size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        // if section是判斷如果是第二個section時，就不要Header、Footer (section是從0開始算，第二個section是 1)
+        if section == 1 {
+            return .zero
+        }
         return CGSize(width: view.frame.width, height: 50)
     }
     // 定義Footer size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+        // if section是判斷如果是第二個section時，就不要Header、Footer (section是從0開始算，第二個section是 1)
+        if section == 1 {
+            return .zero
+        }
+        return CGSize(width: view.frame.width, height: 64)
     }
 }

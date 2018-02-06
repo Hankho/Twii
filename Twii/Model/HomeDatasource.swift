@@ -17,6 +17,8 @@ class HomeDatasource: Datasource {
         return [tonyUser,PepperUser,HankUser]
     }()
     
+    let tweets = ["tweet1","tweet2"]
+    
     //let word = ["Hank","Eric","Andy"]
     
     override func footerClasses() -> [DatasourceCell.Type]? {
@@ -28,15 +30,21 @@ class HomeDatasource: Datasource {
     }
     // return 客製化的UserCell
     override func cellClasses() -> [DatasourceCell.Type] {
-        return [UserCell.self]
+        return [UserCell.self, TweetCell.self]
     }
     
-    
-    
-    override func numberOfItems(_ section: Int) -> Int {
-        return users.count
-    }
     override func item(_ indexPath: IndexPath) -> Any? {
         return users[indexPath.item]
+    }
+    
+    override func numberOfSections() -> Int {
+        return 2
+    }    
+    
+    override func numberOfItems(_ section: Int) -> Int {
+        if section == 1 {
+            return tweets.count
+        }
+        return users.count
     }
 }
