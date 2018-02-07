@@ -17,7 +17,12 @@ class HomeDatasource: Datasource {
         return [tonyUser,PepperUser,HankUser]
     }()
     
-    let tweets = ["tweet1","tweet2"]
+    let tweets:[Tweet] = {
+        let tonyUser = User(name: "TonyStark", username: "@geniusTony", bioText: "Hello, I'm Tony Stark. And this is my message for all of American people.", profileImage: #imageLiteral(resourceName: "ironman_img"))
+        let tweet = Tweet(user: tonyUser, message:"Welcome to episode 9 of the Twitter Series, really hope you guys are enjoying the series so far. I really need a long text bloc to render out so we're going to stop here.")
+        let tweet2 = Tweet(user: tonyUser, message:"This is the second tweet message for our sample project. Very very exciting message....")
+        return [tweet,tweet2]
+    }()
     
     //let word = ["Hank","Eric","Andy"]
     
@@ -34,6 +39,9 @@ class HomeDatasource: Datasource {
     }
     
     override func item(_ indexPath: IndexPath) -> Any? {
+        if indexPath.section == 1 {
+            return tweets[indexPath.item]
+        }
         return users[indexPath.item]
     }
     
