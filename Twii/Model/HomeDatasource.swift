@@ -7,15 +7,29 @@
 //
 
 import LBTAComponents
+import TRON
+import SwiftyJSON
 
-class HomeDatasource: Datasource {
+class HomeDatasource: Datasource,JSONDecodable {
     
-    let users:[User] = {
-        let tonyUser = User(name: "TonyStark", username: "@geniusTony", bioText: "Hello, I'm Tony Stark. And this is my message for all of American people.", profileImage: #imageLiteral(resourceName: "ironman_img"))
-        let PepperUser = User(name: "Pepper", username: "@beautypepper", bioText: "Hey,Boss. I think that I have to arrange our schedule for my holiday.", profileImage: #imageLiteral(resourceName: "pepper_img"))
-        let HankUser = User(name: "Hankho", username: "@hankhe", bioText: "Uh... I'm creator of this app~\nDo you like this?\nIf you like,pls press the button of Follow.", profileImage: #imageLiteral(resourceName: "hank_img"))
-        return [tonyUser,PepperUser,HankUser]
-    }()
+    let users:[User]
+    
+    required init(json: JSON) throws {
+        
+        var users = [User]()
+        
+        let array = json["users"].array
+        for userJSON in array! {
+            let name = userJSON["name"].stringValue
+            let username = userJSON["username"].stringValue
+            let bio = userJSON["bio"].stringValue
+            
+            let user = User(name: name, username: username, bioText: bio, profileImage: UIImage())
+            print(user.username)
+            users.append(user)
+        }
+        self.users = users
+    }
     
     let tweets:[Tweet] = {
         let tonyUser = User(name: "TonyStark", username: "@geniusTony", bioText: "Hello, I'm Tony Stark. And this is my message for all of American people.", profileImage: #imageLiteral(resourceName: "ironman_img"))

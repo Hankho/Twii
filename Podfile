@@ -8,5 +8,6 @@ target 'Twii' do
   # Pods for Twii
 
   pod 'LBTAComponents', '~> 0.1.9'
+  pod 'TRON', '~>4.1.0’
 
 end
