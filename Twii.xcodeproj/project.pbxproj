@@ -14,6 +14,7 @@
 		180E69AD20197ECC00A37A7C /* HomeDatasourceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E69AC20197ECC00A37A7C /* HomeDatasourceController.swift */; };
 		180E69B22019ABB100A37A7C /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E69B12019ABB100A37A7C /* Cells.swift */; };
 		180E69B42019AC3300A37A7C /* HomeDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180E69B32019AC3300A37A7C /* HomeDatasource.swift */; };
+		183894092031333E00092A89 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183894082031333E00092A89 /* Service.swift */; };
 		189319BB2021926A00D92749 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189319BA2021926A00D92749 /* User.swift */; };
 		189319BD2021B86F00D92749 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189319BC2021B86F00D92749 /* UserCell.swift */; };
 		189319BF2024387500D92749 /* HomeDatasourceController+navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189319BE2024387500D92749 /* HomeDatasourceController+navbar.swift */; };
@@ -32,6 +33,7 @@
 		180E69AC20197ECC00A37A7C /* HomeDatasourceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasourceController.swift; sourceTree = "<group>"; };
 		180E69B12019ABB100A37A7C /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
 		180E69B32019AC3300A37A7C /* HomeDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDatasource.swift; sourceTree = "<group>"; };
+		183894082031333E00092A89 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		189319BA2021926A00D92749 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		189319BC2021B86F00D92749 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		189319BE2024387500D92749 /* HomeDatasourceController+navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDatasourceController+navbar.swift"; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 		180E69972015EE1900A37A7C /* Twii */ = {
 			isa = PBXGroup;
 			children = (
+				183894072031331900092A89 /* Service */,
 				180E69B02019AB8000A37A7C /* View */,
 				180E69AF2019AB7300A37A7C /* Model */,
 				180E69AE2019AB5C00A37A7C /* Controller */,
@@ -114,6 +117,14 @@
 				189319C020294BFC00D92749 /* TweetCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		183894072031331900092A89 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				183894082031333E00092A89 /* Service.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		6774BA1759123E6351CA3550 /* Pods */ = {
@@ -277,6 +288,7 @@
 				189319BF2024387500D92749 /* HomeDatasourceController+navbar.swift in Sources */,
 				180E69AB2017192700A37A7C /* HomeController.swift in Sources */,
 				189319BD2021B86F00D92749 /* UserCell.swift in Sources */,
+				183894092031333E00092A89 /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
