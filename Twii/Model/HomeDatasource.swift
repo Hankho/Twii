@@ -11,32 +11,29 @@ import TRON
 import SwiftyJSON
 
 class HomeDatasource: Datasource,JSONDecodable {
-    
+    // 宣告陣列 users
     let users:[User]
+    // 宣告陣列 tweets
+    let tweets:[Tweet]
     
     required init(json: JSON) throws {
-        
-        var users = [User]()
-        
-        let array = json["users"].array
-        for userJSON in array! {
-            let name = userJSON["name"].stringValue
-            let username = userJSON["username"].stringValue
-            let bio = userJSON["bio"].stringValue
-            
-            let user = User(name: name, username: username, bioText: bio, profileImage: UIImage())
-            print(user.username)
-            users.append(user)
+
+        guard let usersJsonArray = json["users"].array,
+              let tweetsJsonArray = json["tweets"].array else{
+            throw NSError(domain: "com.letsbuildthatapp", code: 1, userInfo: [NSLocalizedDescriptionKey:"Parsing JSON was not valid."])
         }
-        self.users = users
+        self.users = usersJsonArray.map({User(json: $0)})
+
+        self.tweets = tweetsJsonArray.map({Tweet(json: $0)})
+//        let tweetsJsonArray = json["tweets"].array
+//        for tweetJSON in tweetsJsonArray! {
+//            let tweet = Tweet(json: tweetJSON)
+//            tweets.append(tweet)
+//        }
+        
+        //self.tweets = tweets
     }
     
-    let tweets:[Tweet] = {
-        let tonyUser = User(name: "TonyStark", username: "@geniusTony", bioText: "Hello, I'm Tony Stark. And this is my message for all of American people.", profileImage: #imageLiteral(resourceName: "ironman_img"))
-        let tweet = Tweet(user: tonyUser, message:"Welcome to episode 9 of the Twitter Series, really hope you guys are enjoying the series so far. I really need a long text bloc to render out so we're going to stop here.")
-        let tweet2 = Tweet(user: tonyUser, message:"This is the second tweet message for our sample project. Very very exciting message....")
-        return [tweet,tweet2]
-    }()
     
     //let word = ["Hank","Eric","Andy"]
     
